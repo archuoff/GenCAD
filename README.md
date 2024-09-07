@@ -1,1 +1,1 @@
-# GenCAD
+Don't run or use the conda environment or the <code>.ipynb</code> (notebooks) in this directory create the env by the <code>.yml</code> file provided and  work in another local directory and just upload the env configuration and the notebook files in this git repo directory if u have done any changes like installed any packages using the conda env or written code.
