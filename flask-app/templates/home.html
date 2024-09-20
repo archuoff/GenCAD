@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenCAD</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">    
+</head>
+<body>
+    <div class="container-flex m-0 p-0">
+        <div class="row m-0 p-3">
+            <div class="col-12 m-0 p-0 d-flex justify-content-center align-items-center">
+                <h1 style="font-size: 75px;">GenCAD</h1>
+            </div>
+            <div class="col-12 m-0 mb-4 p-0 d-flex justify-content-center align-items-center">
+                <h4>Enter the parameters extracted from the <code>.step</code>, <code>.stl</code>, <code>.rst</code> files to recommend a better model with <code>.step</code> file</h4>
+            </div>
+            <div class="col-12 m-0 mt-2 p-0 d-flex justify-content-center align-items-center">
+                <form id="recommendForm">
+                    <div class="row m-0 p-0">
+                        <div class="col-2 mb-4">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 mb-2"><input id="length" class="form-control" type="text" placeholder="Length" required></div>
+                                <div class="col-12 ms-1"><span>Enter simulated <code>length (m)</code> value</span></div>
+                            </div>
+                        </div>
+                        <div class="col-2 mb-4">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 mb-2"><input id="diameter" class="form-control" type="text" placeholder="Diameter" required></div>
+                                <div class="col-12 ms-1"><span>Enter simulated <code>diameter (m)</code> value</span></div>
+                            </div>
+                        </div>
+                        <div class="col-2 mb-4 d-flex justify-content-center align-items-center border rounded">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 p-0 mb-2"><input id="fos" class="form-control" type="text" placeholder="FOS" required></div>
+                                <div class="col-12 p-0 ms-1"><b><span>Enter required <code>fos</code> value</span></div></b>
+                            </div>
+                        </div>
+                        <div class="col-2 mb-4">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 mb-2"><input id="material" class="form-control" type="text" placeholder="Material" required></div>
+                                <div class="col-12 ms-1"><span>Enter simulated <code>material</code> value</span></div>
+                            </div>
+                        </div>
+                        <div class="col-2 mb-4">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 mb-2"><input id="bendingMomentLeft" class="form-control" type="text" placeholder="Bending Moment (Left)" required></div>
+                                <div class="col-12 ms-1"><span>Enter simulated <code>bending moment (Nm) (left)</code> value</span></div>
+                            </div>
+                        </div>
+                        <div class="col-2 mb-4">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 mb-2"><input id="bendingMomentRight" class="form-control" type="text" placeholder="Bending Moment (Right)" required></div>
+                                <div class="col-12 ms-1"><span>Enter simulated <code>bending moment (Nm) (right)</code> value</span></div>
+                            </div>
+                        </div>
+                        <div class="col-2 mb-4">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 mb-2"><input id="torque" class="form-control" type="text" placeholder="Torque" required></div>
+                                <div class="col-12 ms-1"><span>Enter simulated <code>torque (Nm)</code> value</span></div>
+                            </div>
+                        </div>
+                        <div class="col-2 mb-4">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 mb-2"><input id="fatigueLife" class="form-control" type="text" placeholder="Fatigue Life" required></div>
+                                <div class="col-12 ms-1"><span>Enter simulated <code>fatigue life (cycles)</code> value</span></div>
+                            </div>
+                        </div>
+                        <div class="col-2 mb-4">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 mb-2"><input id="stressMax" class="form-control" type="text" placeholder="Stress Max" required></div>
+                                <div class="col-12 ms-1"><span>Enter simulated <code>stess max (MPa)</code> value</span></div>
+                            </div>
+                        </div>
+                        <div class="col-2 mb-4">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 mb-2"><input id="stressMin" class="form-control" type="text" placeholder="Stress Min" required></div>
+                                <div class="col-12 ms-1"><span>Enter simulated <code>stress min (MPa)</code> value</span></div>
+                            </div>
+                        </div>
+                        <div class="col-2 mb-4">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 mb-2"><input id="strainMax" class="form-control" type="text" placeholder="Strain Max" required></div>
+                                <div class="col-12 ms-1"><span>Enter simulated <code>strain max</code> value</span></div>
+                            </div>
+                        </div>
+                        <div class="col-2 mb-4">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 mb-2"><input id="strainMin" class="form-control" type="text" placeholder="Strain Min" required></div>
+                                <div class="col-12 ms-1"><span>Enter simulated <code>strain min</code> value</span></div>
+                            </div>
+                        </div>
+                        <div class="col-2 mb-4">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 mb-2"><input id="deformationMax" class="form-control" type="text" placeholder="Deformation Max" required></div>
+                                <div class="col-12 ms-1"><span>Enter simulated <code>deformation max</code> value</span></div>
+                            </div>
+                        </div>
+                        <div class="col-2 mb-4">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 mb-2"><input id="deformationMin" class="form-control" type="text" placeholder="Deformation Min" required></div>
+                                <div class="col-12 ms-1"><span>Enter simulated <code>deformation min</code> value</span></div>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-top">
+                            <div class="row m-0 p-0 w-100">
+                                <div class="col-12 mb-2"><button class="btn btn-lg btn-outline-dark w-100" type="submit">Recommend</button></div>
+                            </div>
+                        </div>
+                        <div class="col-2 d-flex justify-content-center align-items-top">
+                            <div class="row m-0 p-0 w-100">
+                                <div class="col-12 mb-2"><button id="logout" class="btn btn-lg btn-outline-dark w-100" type="button">Logout</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="result" class="col-12 m-0 mb-2 p-0 d-flex justify-content-center align-items-center d-none">
+                <div class="row m-0 p-0 w-100">
+                    <div class="col-12 m-0 mb-1 p-0 d-flex justify-content-center align-items-center"><h5>Your recommended <code>.step</code> file</h5></div>
+                    <div class="col-12 m-0 p-0 d-flex justify-content-center align-items-center"><Button id="download" class="btn btn-outline-dark" type="button">Download</Button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

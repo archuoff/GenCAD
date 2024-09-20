@@ -1,1 +1,60 @@
-.vscode
+# Python virtual environments
+venv/
+.env/
+
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff
+db.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.coverage
+*.cover
+*.py,cover
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.mo
+*.db
+*.sqlite3
+
+# Media files (uploads)
+media/
+staticfiles/
+
+# Local environment variables
+.env
+*.env
+
+# Django Migrations
+**/migrations/*
+!**/migrations/__init__.py
+
+# IDE specific files (e.g., VSCode, PyCharm)
+.vscode/
+.idea/
+*.swp
+
+# MacOS specific files
+.DS_Store
+
+# pipenv and Poetry files
+Pipfile.lock
+poetry.lock
+
+# Docker specific files
+docker-compose.yml
+.dockerignore
+
+# Node.js dependencies (if using frontend tools like npm, yarn)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
