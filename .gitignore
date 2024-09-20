@@ -58,3 +58,15 @@ node_modules/
 npm-debug.log
 yarn-debug.log
 yarn-error.log
+
+# Conda environment
+/env/
+*.condarc
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Flask and other config files
+*.log
+*.sqlite
